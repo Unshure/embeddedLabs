@@ -2,9 +2,9 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 09/26/2018 08:55:56 PM
+-- Create Date: 10/04/2018 12:15:34 AM
 -- Design Name: 
--- Module Name: clock_div - Behavioral
+-- Module Name: debounce - Behavioral
 -- Project Name: 
 -- Target Devices: 
 -- Tool Versions: 
@@ -31,32 +31,40 @@ use IEEE.NUMERIC_STD.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
-entity clock_div is
-port (
-    clock : in std_logic;
-    clk_div : out std_logic);
-end clock_div;
+entity debounce is
 
-architecture behavior of clock_div is
-
-signal count : std_logic_vector(25 downto 0) := (others => '0');
-signal div : std_logic := '0';
-
-begin
+port(
+    button  :   in std_logic;
+    clk     :   in std_logic;    
+    debounce:   out std_logic);
     
-    clk_div <= div;
+end debounce;
 
-    process (clock)
+
+architecture arch of debounce is
+    signal counter : std_logic_vector(31 downto 0) := (others => '0');
+    signal shift_register : std_logic_vector(1 downto 0):= "00";
+   
     begin
-        if rising_edge(clock) then 
-            if unsigned(count) < 62500000 then
-                count <= std_logic_vector(unsigned(count) + 1);
-                div <= '0';
-            else
-                div <= '1';
-                count <= (others => '0');
-            end if;
-        end if;            
+    
+    process (clk)
+        begin 
+        
+        if (rising_edge(clock)) then
+            shift_register(0)<= button;
+            shift_register(1) <= shift_register(0);
+            
+            
+                    
+    
+    
+    
+    
+    
     end process;
 
-end behavior;
+
+begin
+
+
+end arch;
