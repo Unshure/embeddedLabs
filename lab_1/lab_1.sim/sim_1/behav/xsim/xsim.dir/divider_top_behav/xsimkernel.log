@@ -2,3 +2,6 @@ Running: xsim.dir/divider_top_behav/xsimk -simmode gui -wdb divider_top_behav.wd
 Design successfully loaded
 Design Loading Memory Usage: 42384 KB (Peak: 42384 KB)
 Design Loading CPU Usage: 30 ms
+Simulation completed
+Simulation Memory Usage: 124120 KB (Peak: 189656 KB)
+Simulation CPU Usage: 30 ms
