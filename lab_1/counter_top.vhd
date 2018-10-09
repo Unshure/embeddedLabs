@@ -69,32 +69,11 @@ architecture Behavioral of counter_top is
             cnt : out std_logic_vector (3 downto 0));
     end component;
     
-    component debounce0 is
+    component debounce is
         port(
-            clk:    in STD_LOGIC;
-            btn: in STD_LOGIC;
-            dbnc: in STD_LOGIC);
-    end component;
-    
-    component debounce1 is
-        port(
-            clk:    in STD_LOGIC;
-            btn: in STD_LOGIC;
-            dbnc: in STD_LOGIC);
-    end component;
-    
-    component debounce2 is
-        port(
-            clk:    in STD_LOGIC;
-            btn: in STD_LOGIC;
-            dbnc: in STD_LOGIC);
-    end component;
-    
-    component debounce3 is
-        port(
-            clk:    in STD_LOGIC;
-            btn: in STD_LOGIC;
-            dbnc: in STD_LOGIC);
+            clk: in std_logic;
+            btn: in std_logic;
+            dbnc: out std_logic);
     end component;
 
     signal div_to_en : std_logic;
@@ -129,28 +108,28 @@ begin
         cnt => count
     );
     
-    G2 : debounce0
+    G2 : debounce
     port map (
         clk => clk,
         btn => btn0,
         dbnc => dbtn0_to_rst
     );
     
-    G3 : debounce1
+    G3 : debounce
     port map (
         clk => clk,
         btn => btn1,
         dbnc => dbtn1_to_en
     );
         
-    G4 : debounce2
+    G4 : debounce
     port map (
        clk => clk,
         btn => btn2,
         dbnc => dbtn2_to_updn
     );  
     
-    G5 : debounce3
+    G5 : debounce
     port map (
         clk => clk,
         btn => btn3,

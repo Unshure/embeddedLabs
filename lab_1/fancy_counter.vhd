@@ -45,6 +45,8 @@ end fancy_counter;
 architecture Behavioral of fancy_counter is
 
     signal count : std_logic_vector (3 downto 0) := (others => '0');
+    signal value : std_logic_vector (3 downto 0) := "1111";
+    signal direction : std_logic := '1';
 
 begin
 
@@ -56,24 +58,25 @@ begin
             if en = '1' then
                 if clk_en = '1' then
                     if updn = '1' then
-                        if dir = '1' then
-                            count <= std_logic_vector(unsigned(count) + 1);
-                            if count > val then
-                                count <= (others => '0');
-                            end if;
+                        direction <= dir;
+                    end if;
+                    if direction = '1' then
+                        count <= std_logic_vector(unsigned(count) + 1);
+                        if count >= value then
+                            count <= (others => '0');
+                        end if;
+                    else
+                        if unsigned(value) = 0 then
+                            count <= (others => '0');
+                        elsif unsigned(count) = 0 then
+                            count <= value;
                         else
-                            if unsigned(val) = 0 then
-                                count <= (others => '0');
-                            elsif unsigned(count) = 0 then
-                                count <= val;
-                            else
-                                count <= std_logic_vector(unsigned(count) - 1);
-                            end if;
+                            count <= std_logic_vector(unsigned(count) - 1);
                         end if;
                     end if;
                     if ld = '1' then
-                        count <= val;
-                    end if;
+                        value <= val;
+                    end if;    
                 end if;
                 if rst = '1' then
                     count <= (others => '0');
