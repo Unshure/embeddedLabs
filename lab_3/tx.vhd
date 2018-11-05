@@ -21,7 +21,7 @@ architecture FSM of uart_tx is
 
     -- state type enumeration and state variables
     -- Present state signal P & Next state signal N
-    type state is (idle, start, data);
+    type state is (idle, data);
     signal N 	  	: state := idle;
     
     -- Counter for bits of data transmitted

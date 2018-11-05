@@ -20,7 +20,7 @@ architecture Behavioral of sender is
 
     -- NetID Array, counter i and constant n that is length of array.
     type str is array (0 to 3) of std_logic_vector(7 downto 0);
-    signal netID        : str := (x"6B", x"64", x"71", x"32");
+    signal netID        : str := (x"0A", x"22", x"06", x"97");
     signal i            : STD_LOGIC_VECTOR (2 downto 0) := "000";
     constant n          : STD_LOGIC_VECTOR(2 downto 0) := "100";
     
