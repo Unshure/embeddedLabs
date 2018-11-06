@@ -6,7 +6,9 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top_uart is
     Port ( 
-            btn     : in  STD_LOGIC_VECTOR (1 downto 0);
+            btn0    : in STD_LOGIC;
+            btn1    : in STD_LOGIC;
+            led0    : out STD_LOGIC;
             clk     : in  STD_LOGIC;
             TXD     : in  STD_LOGIC;
             RXD     : out STD_LOGIC;
@@ -24,8 +26,8 @@ component debounce
 end component;
 
 component clock_div
-Port ( clk : in STD_LOGIC;
-       div : out STD_LOGIC
+Port ( clock : in STD_LOGIC;
+       clk_div : out STD_LOGIC
        );
 end component;
 
@@ -55,13 +57,13 @@ signal charSend_temp                  : STD_LOGIC_VECTOR(7 downto 0) := (others 
 begin
 
     -- Debouncing button 0 and storing output in temporary bit
-    button0 : debounce port map( btn => btn(0), clk => clk, dbnc => btn_temp);
+    button0 : debounce port map( btn => btn0, clk => clk, dbnc => btn_temp);
     
     -- Debouncing button 1 and storing output in temporary bit
-    button1 : debounce port map( btn => btn(1), clk => clk, dbnc => rst_temp);
+    button1 : debounce port map( btn => btn1, clk => clk, dbnc => rst_temp);
     
     -- Dividing clock to get clock enable and storing in temporary bit
-    clock_divider : clock_div port map( clk => clk, div => en_temp);
+    clock_divider : clock_div port map( clock => clk, clk_div => en_temp);
     
     -- Sender port map with temporary storage signals
     sender_map  : sender port map(
@@ -78,6 +80,7 @@ begin
                 
      CTS <= '0';
      RTS <= '0';           
+     led0 <= btn_temp;
                 
                 
 end Behavioral;

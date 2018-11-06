@@ -20,9 +20,9 @@ architecture Behavioral of sender is
 
     -- NetID Array, counter i and constant n that is length of array.
     type str is array (0 to 3) of std_logic_vector(7 downto 0);
-    signal netID        : str := (x"0A", x"22", x"06", x"97");
-    signal i            : STD_LOGIC_VECTOR (2 downto 0) := "000";
-    constant n          : STD_LOGIC_VECTOR(2 downto 0) := "100";
+    signal netID        : str := (X"31", X"37", X"30", X"30");
+    signal i            : STD_LOGIC_VECTOR (3 downto 0) := "0000";
+    constant n          : STD_LOGIC_VECTOR(3 downto 0) := "0100";
     
     -- State variables and state declarations
     type state is (idle,busyA, busyB, busyC);

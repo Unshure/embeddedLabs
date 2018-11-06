@@ -13,8 +13,7 @@ Port
     send 	: in 	STD_LOGIC;
     ready 	: out 	STD_LOGIC;
     tx 		: out 	STD_LOGIC;
-    char 	: in 	STD_LOGIC_VECTOR (7 downto 0)
-);
+    char 	: in 	STD_LOGIC_VECTOR (7 downto 0));
 end uart_tx;
 
 architecture FSM of uart_tx is
@@ -35,13 +34,13 @@ architecture FSM of uart_tx is
        
     
 begin
-
     --FSM for Uart transmission
     process(clk,rst) begin
        
      	if rst = '1' then
             ready   <= '1';
             tx      <= '1';
+            N <= idle;
 
 
     	elsif (rising_edge(clk) and en = '1') then
@@ -66,7 +65,7 @@ begin
     					-- Transmit LSB first, right shift data register by one bit
     					-- Incremement counter
                         tx 		<= shift(0);				
-                        shift 	<= "0" & shift(7 downto 1);
+                        shift 	<= std_logic_vector(shift_right(signed(shift), 1));
                         count 	<= STD_LOGIC_VECTOR(unsigned(count) + 1);
                         N		<= data;
                     else
