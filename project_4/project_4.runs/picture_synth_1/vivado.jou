@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Nov 19 18:11:27 2018
+# Process ID: 18915
+# Current directory: /home/user/Documents/embeddedLabs/project_4/project_4.runs/picture_synth_1
+# Command line: vivado -log picture.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source picture.tcl
+# Log file: /home/user/Documents/embeddedLabs/project_4/project_4.runs/picture_synth_1/picture.vds
+# Journal file: /home/user/Documents/embeddedLabs/project_4/project_4.runs/picture_synth_1/vivado.jou
+#-----------------------------------------------------------
+source picture.tcl -notrace
