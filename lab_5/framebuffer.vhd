@@ -5,8 +5,7 @@ use IEEE.NUMERIC_STD.ALL;
 
 
 entity framebuffer is
-    Port ( clk1     : in  STD_LOGIC;
-           clk2     : in  STD_LOGIC;
+    Port ( clk     : in  STD_LOGIC;
            en1      : in  STD_LOGIC;
            en2      : in  STD_LOGIC;
            addr1    : in  STD_LOGIC_VECTOR (11 downto 0);
@@ -27,9 +26,9 @@ signal memSignal    : mem;
 
 begin
 
-process(clk1) begin
+process(clk) begin
 
-    if rising_edge(clk1) then
+    if rising_edge(clk) then
         if en1 = '1' then
             if wr_en1 = '1' then
                 memSignal(to_integer(unsigned(addr1))) <= din1;
@@ -40,8 +39,8 @@ process(clk1) begin
     
 end process;
 
-process(clk2) begin
-    if rising_edge(clk2) and (en2 = '1') then
+process(clk) begin
+    if rising_edge(clk) and (en2 = '1') then
         dout2  <= memSignal(to_integer(unsigned(addr2)));
     end if;
 end process;

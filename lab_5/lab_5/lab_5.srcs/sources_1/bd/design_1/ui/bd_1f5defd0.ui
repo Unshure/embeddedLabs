@@ -1,0 +1,68 @@
+{
+   ExpandedHierarchyInLayout: "",
+   guistr: "# # String gsaved with Nlview 6.8.5  2018-01-30 bk=1.4354 VDI=40 GEI=35 GUI=JA:1.6 TLS
+#  -string -flagsOSRD
+preplace port RXD -pg 1 -y 620 -defaultsOSRD
+preplace port vga_hs -pg 1 -y 520 -defaultsOSRD
+preplace port CTS -pg 1 -y -170 -defaultsOSRD
+preplace port vga_vs -pg 1 -y 540 -defaultsOSRD
+preplace port RTS -pg 1 -y -120 -defaultsOSRD
+preplace port clk -pg 1 -y -90 -defaultsOSRD
+preplace port TXD -pg 1 -y 630 -defaultsOSRD
+preplace port btn0 -pg 1 -y -70 -defaultsOSRD
+preplace portBus vga_b -pg 1 -y 240 -defaultsOSRD
+preplace portBus vga_r -pg 1 -y 220 -defaultsOSRD
+preplace portBus vga_g -pg 1 -y 260 -defaultsOSRD
+preplace inst controls_0 -pg 1 -lvl 2 -y 350 -defaultsOSRD
+preplace inst clock_div_25_0 -pg 1 -lvl 1 -y 130 -defaultsOSRD
+preplace inst framebuffer_0 -pg 1 -lvl 4 -y -20 -defaultsOSRD
+preplace inst uart_0 -pg 1 -lvl 3 -y 630 -defaultsOSRD
+preplace inst pixel_pusher_0 -pg 1 -lvl 4 -y 250 -defaultsOSRD
+preplace inst debounce_0 -pg 1 -lvl 1 -y -80 -defaultsOSRD
+preplace inst vga_ctrl_0 -pg 1 -lvl 4 -y 500 -defaultsOSRD
+preplace inst regs_0 -pg 1 -lvl 3 -y 100 -defaultsOSRD
+preplace inst myALU_0 -pg 1 -lvl 3 -y 380 -defaultsOSRD
+preplace inst clock_div_112500_0 -pg 1 -lvl 1 -y 230 -defaultsOSRD
+preplace netloc vga_ctrl_0_hcount 1 3 2 990 130 1310
+preplace netloc controls_0_wr_enR1 1 2 1 420
+preplace netloc clock_div_112500_0_clk_div 1 1 3 50J 100 450 -70 N
+preplace netloc pixel_pusher_0_addr 1 3 2 970 120 1320
+preplace netloc controls_0_fb_en 1 2 2 480 -40 900J
+preplace netloc controls_0_rID1 1 2 1 430
+preplace netloc controls_0_wr_enR2 1 2 1 460
+preplace netloc clock_0_1 1 0 4 -370 70 40 70 550 240 960
+preplace netloc controls_0_rID2 1 2 1 470
+preplace netloc vga_ctrl_0_hs 1 4 1 N
+preplace netloc vga_ctrl_0_vcount 1 3 2 980 370 1300
+preplace netloc uart_0_charRec 1 1 3 50 650 580J 520 920
+preplace netloc uart_0_ready 1 1 3 10 740 NJ 740 910
+preplace netloc pixel_pusher_0_B 1 4 1 N
+preplace netloc vga_ctrl_0_vs 1 3 2 970 610 1340
+preplace netloc controls_0_regwD1 1 2 1 490
+preplace netloc controls_0_regwD2 1 2 1 500
+preplace netloc controls_0_fbRST 1 2 2 N 280 950J
+preplace netloc rx_0_1 1 0 3 NJ 630 -10J 640 N
+preplace netloc controls_0_aluOp 1 2 1 540
+preplace netloc pixel_pusher_0_R 1 4 1 N
+preplace netloc vga_ctrl_0_vid 1 3 2 990 380 1290
+preplace netloc uart_0_newChar 1 1 3 20 750 NJ 750 900
+preplace netloc myALU_0_outputs 1 1 3 40 610 560J 480 900
+preplace netloc framebuffer_0_dout1 1 1 4 30 600 420J 510 930J 600 1330
+preplace netloc uart_0_tx 1 3 2 N 620 N
+preplace netloc controls_0_aluA 1 2 1 520
+preplace netloc regs_0_dout1 1 1 3 -10 620 410J 490 930
+preplace netloc pixel_pusher_0_G 1 4 1 N
+preplace netloc framebuffer_0_dout2 1 3 2 980 110 1320
+preplace netloc controls_0_fbDout1 1 2 2 440 -50 910J
+preplace netloc controls_0_charSend 1 2 1 430
+preplace netloc controls_0_aluB 1 2 1 530
+preplace netloc regs_0_dout2 1 1 3 0 630 570J 500 910
+preplace netloc controls_0_fbAddr1 1 2 2 410J -60 970
+preplace netloc clock_div_25_0_clk_div 1 1 3 0J -80 NJ -80 940
+preplace netloc controls_0_sendOut 1 2 1 460
+preplace netloc debounce_0_dbnc 1 1 2 -10 60 510J
+preplace netloc btn_0_1 1 0 1 N
+levelinfo -pg 1 -390 -120 250 750 1150 1370 -top -460 -bot 1030
+",
+}
+
