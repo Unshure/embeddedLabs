@@ -42,10 +42,10 @@ end controls;
 
 architecture Behavioral of controls is
 
-type state is (fetch, fetch1, fetch2, decode, Jops, Iops, Rops, jmp, jal, jal1, clrscr, sw,
-				sw1, lw, lw3, lw2, ori, ori1, ori2, nequal, nequal1, equals, equals1, equals2, equals3, calc, 
-				calc1, calc2, jr, recv, rpix, rpix1, wpix, wpix1, send, store, finish, finish1, finish2);
-signal PS, NS : state := fetch;
+type state is (fetch, fetch1, fetch2, fetch3, decode, Jops, Iops, Iops1, Rops, Rops1, jmp, jal, jal1, clrscr, sw,
+				sw1, lw, ori, ori1, ori2, nequal, nequal1, nequal2, equals, equals1, equals2, calc, 
+				calc1, calc2, jr, recv, rpix, rpix1, rpix2, wpix, send, store, finish, finish1, finish2);
+signal NS : state := fetch;
 
 -- Processor Signals
 
@@ -57,8 +57,6 @@ signal currIN			: STD_LOGIC_VECTOR(31 downto 0);
 signal opcode 		 	: STD_LOGIC_VECTOR(4 downto 0);
 -- Register address	
 signal r1a, r2a, r3a	: STD_LOGIC_VECTOR(4 downto 0);
--- Source Registers values
-signal Rsrc1, Rsrc2		: STD_LOGIC_VECTOR(15 downto 0);
 -- Immediate
 signal imm 				: STD_LOGIC_VECTOR(15 downto 0);
 -- ALU result 			
@@ -76,6 +74,8 @@ process(clk, rst) begin
 		currIN 	<= (others => '0');
 		opcode 	<= (others => '0');
 		r1a 	<= (others => '0');
+		r2a 	<= (others => '0');
+		r3a 	<= (others => '0');
 		imm 	<= (others => '0');
 		res 	<= (others => '0');
 
@@ -119,20 +119,28 @@ process(clk, rst) begin
 	case NS is
 
 		when fetch	=>
-						irAddr 	<= PC(13 downto 0);			-- Sending instruction address to Instr Memory
-						PC 		<= STD_LOGIC_VECTOR(unsigned(PC) + 1);
-						-- WAIT CYCLE
-						NS 		<= fetch1;
-		when fetch1 => 	
-						currIN 	<= irWord;
-						NS 		<= decode;
-		when decode =>
+		                -- Read Current PC
+		                rID1 <= "00001";
+        when fetch1 =>
+                        -- wait for PC Read
+                        NS <= fetch2;
+        when fetch2 =>
+                        -- Wait for instruction to be read from memory
+                        PC      <= regrD1;
+                        irAddr     <= PC(13 downto 0);            -- Sending instruction address to Instr Memory
+                        PC      <= STD_LOGIC_VECTOR(unsigned(PC) + 1);
+                        NS      <= fetch3;
+        when fetch3 =>
+                        -- Wait for instruction read
+                        NS <= decode;
+   		when decode =>
+		                currIN 	<= irWord;
 						wr_enR1 <= '1';
 						rID1 	<= "00001";
-						regwD1  <= STD_LOGIC_VECTOR(unsigned(PC) );
+						regwD1  <= STD_LOGIC_VECTOR(unsigned(PC));
 						opcode  <= currIN(31 downto 27);
 
-						if( currIN(31 downto 30) = "00") or currIN(31 downto 30) = "01" then
+						if(currIN(31 downto 30) = "00") or currIN(31 downto 30) = "01" then
 							NS 	<= Rops;
 						elsif currIN(31 downto 30) = "10" then
 							NS 	<= Iops;
@@ -140,7 +148,8 @@ process(clk, rst) begin
 							NS 	<= Jops;
 						end if;
 		when Jops	=>
-						wr_enR1 <= '0'; 			-- Resetting write enable after incrementing program
+						wr_enR1 <= '0'; 			-- Resetting write enable after incrementing state
+						
 						-- Assuming immediate is 16 bits;
 						imm 	<= currIN(26 downto 11);
 
@@ -153,79 +162,93 @@ process(clk, rst) begin
 						end if;
 
 		when Iops	=>	
-						wr_enR1 <= '0'; 			-- Resetting write enable after incrementing program
+						wr_enR1 <= '0'; 			-- Resetting write enable after incrementing state
+						
 						r1a 	<= currIN(26 downto 22);
-						rID1 	<= currIN(26 downto 22);
-						rID2 	<= currIN(21 downto 17);
+						r2a     <= currIN(21 downto 17);
+						rID1 	<= r1a;
+						rID2 	<= r2a;
 						imm 	<= currIN(16 downto 1);			
-
-						if opcode(2 downto 0) = "000" then
-							NS 	<= equals;
-						elsif opcode(2 downto 0) = "001" then
-							NS 	<= nequal;
-						elsif opcode(2 downto 0) = "010" then
-							NS 	<= ori;
-						elsif opcode(2 downto 0) = "011" then
-							NS  <= lw;
-						else
-							NS  <= sw;
-						end if;
+                        NS <= Iops1;
+		when Iops1 =>
+		              -- Wait cycle to read registers
+		                if opcode(2 downto 0) = "000" then
+                            NS     <= equals;
+                        elsif opcode(2 downto 0) = "001" then
+                            NS     <= nequal;
+                        elsif opcode(2 downto 0) = "010" then
+                            NS     <= ori;
+                        elsif opcode(2 downto 0) = "011" then
+                            NS  <= lw;
+                        else
+                            NS  <= sw;
+                        end if;
 
 		when Rops	=>
-						wr_enR1 <= '0'; 			
-						if 		opcode = "01101" then
-							NS  <= jr;
+						wr_enR1 <= '0'; 			-- Resetting write enable after incrementing state 		
+							
+						if 	opcode = "01101" then
+							NS  <= Rops1;
 							rID1	<= currIN(26 downto 22);		
 							r1a 	<= currIN(26 downto 22);
 						elsif 	opcode = "01100" then
-							NS  <= recv;
+							NS  <= Rops1;
 							rID1	<= currIN(26 downto 22);		
 							r1a 	<= currIN(26 downto 22);
 						elsif 	opcode = "01111" then
-							NS 	<= rpix;
+							NS 	<= Rops1;
 							rID1	<= currIN(26 downto 22);		
 							r1a 	<= currIN(26 downto 22);
 							rID2	<= currIN(21 downto 17);		
 						elsif 	opcode = "01110" then
-						 	NS  <= wpix;
+						 	NS  <= Rops1;
 						 	rID1	<= currIN(26 downto 22);		
 						 	r1a 	<= currIN(26 downto 22);
 							rID2	<= currIN(21 downto 17);		
 						elsif 	opcode = "01011" then
-							NS  <= send;
+							NS  <= Rops1;
 							rID1	<= currIN(26 downto 22);		
 							r1a 	<= currIN(26 downto 22);
 						else 
-							NS  <= calc;
+							NS  <= Rops1;
 							r1a		<= currIN(26 downto 22);		
 							rID1	<= currIN(21 downto 17);		
 							rID2	<= currIN(16 downto 12);		
 						end if;
+		when Rops1 =>
+		            if 		opcode = "01101" then
+                        NS  <= jr;
+                    elsif     opcode = "01100" then
+                        NS  <= recv;
+                    elsif     opcode = "01111" then
+                        NS     <= rpix;
+                    elsif     opcode = "01110" then
+                         NS  <= wpix;      
+                    elsif     opcode = "01011" then
+                        NS  <= send;
+                    else 
+                        NS  <= calc;    
+                    end if;
+		              
 		when jmp	=>							
-						r1a 	<= "00001";							-- setting return write register to PC
-						res 	<= imm;								
-						PC 		<= imm;
-						-- Using store as an intermediatary state that handles the writing back of values to 
-						-- register file
-						NS 		<= store;							
+						rID1 	 <= "00001";					    -- to PC register
+						wr_enR1 <= '1'; 							-- PC
+						regwD1  <= imm;                                -- PC holds value of branch/label/immediate
+						NS 		<= finish;							
 
 		when jal	=>
-						rID1 	<= "00001";							-- to read value from PC register
-						-- WAIT CYCLE
-						NS 		<= jal1;
-		when jal1 	=>  
-						-- Writing to two registers PC & ra
+						rID1 	 <= "00001";					    -- to PC register
+						rID2     <= "00010";                        -- to ra register
 						wr_enR1 <= '1'; 							-- PC
-						wr_enR2 <= '1';								-
-						rID2 	<= "00010";							
-						regwD2 	<= regrD1;							
-						regwD1  <= imm;								-- PC holds value of branch/label/immediate
-
+                        wr_enR2 <= '1';                             -- ra
+                        regwD1  <= imm;                                -- PC holds value of branch/label/immediate
+                        regwD2 	<= PC;							
 						NS 		<= finish;
 
 		when clrscr =>
 						fbRST 	<= '1';
 						NS 		<= finish;
+						
 		when sw 	=>
 						res 	<= STD_LOGIC_VECTOR(unsigned(regrD2) + unsigned(imm));						-- Result is desired mem address
 						d_wr_en <= '1';								-- enable write to data memory
@@ -235,14 +258,7 @@ process(clk, rst) begin
 						NS 		<= finish;
 
 		when lw 	=>
-						res 	<= STD_LOGIC_VECTOR(unsigned(regrD2) + unsigned(imm));
-						NS 		<= lw2;
-		when lw2	=>
-						dAddr 	<= res(14 downto 0); 				-- send data address
-						-- WAIT CYCLE>?>>>
-						NS 		<= lw3;
-		when lw3 	=>
-						res 	<= dIn;								-- Data from memory stored in res to store in reg1
+						res  <= STD_LOGIC_VECTOR(unsigned(regrD2) + unsigned(imm));
 						NS 		<= store;
 
 		when ori	=>
@@ -265,14 +281,17 @@ process(clk, rst) begin
 						aluOP   <= "1101";
 						-- WAIT FOR CYCLE
 						NS 		<= nequal1;
-		when nequal1=>	
+		when nequal1 =>
+		                NS <= nequal2;
+		when nequal2=>	
 						res 	<= aluResult;
 						if res(0) = '0' then
 							res 	<= imm;
-							PC 		<= imm;
 							r1a     <= "00001";
+							NS      <= store;
+					    else
+						    NS 		<= finish;
 						end if;
-						NS 		<= store;
 
 		when equals =>
 						aluA 	<= regrD1;
@@ -286,14 +305,15 @@ process(clk, rst) begin
 		when equals2=>
 						--res 	<= aluResult;
 						if aluResult(0) = '1' then
-							PC 		<= imm;
-							NS 		<= store;
+							res 	<= imm;
+                            r1a     <= "00001";
+                            NS      <= store;
+						else
+						    NS 		<= finish;
 						end if;
-						NS 		<= equals3;
-		when equals3=>
 
-						
-						NS 		<= finish;
+
+-------------Add other calculations if possilbe
 
 		when calc	=>								-- Assuming opcode is last 4 bits
 						aluA 	<= regrD1;
@@ -303,12 +323,12 @@ process(clk, rst) begin
 
 							when "00000" =>		aluOp <= x"0";			-- Add
 							when "00001" =>		aluOp <= x"1";			-- Sub
-							when "00010" =>		aluOp <= x"5";			-- Shift left logical
-							when "00011" =>		aluOp <= x"6";			-- Shift right logical
-							when "00100" =>		aluOp <= x"7";			-- Shift right arithmetic
-							when "00101" =>		aluOp <= x"8";			-- AND
-							when "00110" =>		aluOp <= x"9";			-- OR
-							when "00111" =>		aluOp <= STD_LOGIC_VECTOR(to_unsigned(10, 4));			-- XOR
+							when "00101" =>		aluOp <= x"5";			-- Shift left logical
+							when "00110" =>		aluOp <= x"6";			-- Shift right logical
+							when "00111" =>		aluOp <= x"7";			-- Shift right arithmetic
+							when "01000" =>		aluOp <= x"8";			-- AND
+							when "01001" =>		aluOp <= x"9";			-- OR
+							when "01010" =>		aluOp <= STD_LOGIC_VECTOR(to_unsigned(10, 4));			-- XOR
 							when others  => 	aluOp <= x"4";			-- if mistake, negate
 						end case;
 
@@ -338,18 +358,16 @@ process(clk, rst) begin
 						-- Wait to get response?? Using counter or intermediate state
 						-- WAIT FOR CYCLE
 						NS 		<= rpix1;
-		when rpix1 	=>
+		when rpix1 => 
+		                NS      <= rpix2;
+		when rpix2 	=>
 						res 	<= fbDin1;
 						NS 		<= store;
 
 		when wpix	=>
 						fbAddr1 <= regrD1(11 downto 0);
+						fbDout1  <= regrD2;
 						fb_en	<= '1';
-						-- NEED TO wait a cycle?
-						-- WAIT FOR CYCLE
-						NS 		<= wpix1;
-		when wpix1 	=>
-						fbDout1 <= regrD2;
 						NS 		<= finish;
 
 		when send 	=>
@@ -374,6 +392,7 @@ process(clk, rst) begin
 						sendOut <= '0';
 						fb_en  	<= '0';
 						wr_enR1 <= '0';
+						fbRST <= '0';
 						
 						-- EXTRA CREDIT
 						rID2    <= "11111";           -- Getting value from register 31
