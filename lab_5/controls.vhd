@@ -121,13 +121,14 @@ process(clk, rst) begin
 		when fetch	=>
 		                -- Read Current PC
 		                rID1 <= "00001";
+		                NS <= fetch1;
         when fetch1 =>
                         -- wait for PC Read
                         NS <= fetch2;
         when fetch2 =>
                         -- Wait for instruction to be read from memory
                         PC      <= regrD1;
-                        irAddr     <= PC(13 downto 0);            -- Sending instruction address to Instr Memory
+                        irAddr  <= PC(13 downto 0);            -- Sending instruction address to Instr Memory
                         PC      <= STD_LOGIC_VECTOR(unsigned(PC) + 1);
                         NS      <= fetch3;
         when fetch3 =>
@@ -166,8 +167,8 @@ process(clk, rst) begin
 						
 						r1a 	<= currIN(26 downto 22);
 						r2a     <= currIN(21 downto 17);
-						rID1 	<= r1a;
-						rID2 	<= r2a;
+						rID1 	<= currIN(26 downto 22);
+						rID2 	<= currIN(21 downto 17);
 						imm 	<= currIN(16 downto 1);			
                         NS <= Iops1;
 		when Iops1 =>

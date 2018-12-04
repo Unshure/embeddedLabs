@@ -1403,11 +1403,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 04 06:02:46 UTC 2018</spirit:value>
+            <spirit:value>Tue Dec 04 19:15:25 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:4c2232a6</spirit:value>
+            <spirit:value>8:9d7bc536</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -1423,11 +1423,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Tue Dec 04 06:02:46 UTC 2018</spirit:value>
+            <spirit:value>Tue Dec 04 22:42:34 UTC 2018</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>8:4c2232a6</spirit:value>
+            <spirit:value>8:9d7bc536</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
