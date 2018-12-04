@@ -1,0 +1,17 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../../controls.vhd" \
+"../../../../../framebuffer.vhd" \
+"../../../../../my_alu.vhd" \
+"../../../../../pixel_pusher.vhd" \
+"../../../../../regs.vhd" \
+"../../../../../debounce.vhd" \
+"../../../../../clock_div_25.vhd" \
+"../../../../../clock_div_115200.vhd" \
+"../../../../../vga_ctrl.vhd" \
+"../../../../../tx.vhd" \
+"../../../../../uart_rx.vhd" \
+"../../../../../uart.vhd" \
+
+# Do not sort compile order
+nosort

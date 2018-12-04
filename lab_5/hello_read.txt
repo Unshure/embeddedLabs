@@ -1,42 +1,42 @@
 .data
 // our hello world string
-val1: str "hello_world"
+* val1: str "hello_world"
 
 .text
 
 // load constants to start
-ori $r3 $zero 0 // counter for string
-ori $r4 $zero 0 // counter for video memory
-ori $r5 $zero 1 // constant 1
-ori $r6 $zero 4096 // constant for vid mem addr max
+* ori $r3 $zero 0 // counter for string
+* ori $r4 $zero 0 // counter for video memory
+* ori $r5 $zero 1 // constant 1
+* ori $r6 $zero 4096 // constant for vid mem addr max
 
 // read char, if not zero print it else end
-beg:
-lw $r7 $r3 val1
-beq $r7 $zero read
-send $r7
-add $r3 $r3 $r5 // increment char pointer
-j beg 
+* beg:
+* lw $r7 $r3 val1
+* beq $r7 $zero read
+* send $r7
+* add $r3 $r3 $r5 // increment char pointer
+* j beg 
 
 // time for video stuff REDACTED
-read:
-ori $r4 $zero 0
-recv $r7
-j writeImg
+* read:
+* ori $r4 $zero 0
+* recv $r7
+* j writeImg
 
-writeImg:
+* writeImg:
 // Write character to pixel im memory
-wpix $r4 $r7
+* wpix $r4 $r7
 
 // Add 1 to Image memory address 
-add $r4 $r4 $r5
+* add $r4 $r4 $r5
 
 // Branch if at end of memory
-beq $r4 $r6 read
+* beq $r4 $r6 read
 
 // Loop
-j writeImg
+* j writeImg
 
 
-end:
-add $zero $zero $zero
+* end:
+* add $zero $zero $zero
