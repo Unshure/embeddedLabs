@@ -353,10 +353,10 @@ process(clk, rst) begin
 						r1a		<= "00001";					
 						NS 		<= store;
 		when recv	=>
-						res 	<= "00000000" & charRec;
 						if newChar = '0' then
 							NS 	<= recv;
 						else
+							res <= "00000000" & charRec;
 							NS 	<= store;
 						end if;
 
