@@ -1,0 +1,56 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_controls_0_0/sim/design_1_controls_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_controls_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_framebuffer_0_0/sim/design_1_framebuffer_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_framebuffer_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_myALU_0_0/sim/design_1_myALU_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_myALU_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_pixel_pusher_0_0/sim/design_1_pixel_pusher_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_pixel_pusher_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_regs_0_0/sim/design_1_regs_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_regs_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_debounce_0_0/sim/design_1_debounce_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_debounce_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_clock_div_25_0_0/sim/design_1_clock_div_25_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_clock_div_25_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_clock_div_112500_0_0/sim/design_1_clock_div_112500_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_clock_div_112500_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_vga_ctrl_0_0/sim/design_1_vga_ctrl_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_vga_ctrl_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_uart_0_0/sim/design_1_uart_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_uart_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_blk_mem_gen_0_0/sim/design_1_blk_mem_gen_0_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_blk_mem_gen_0_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/ip/design_1_blk_mem_gen_0_2/sim/design_1_blk_mem_gen_0_2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_blk_mem_gen_0_2
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.ip_user_files/bd/design_1/sim/design_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module design_1_wrapper
+INFO: [VRFC 10-2263] Analyzing Verilog file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/controls.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity controls
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/framebuffer.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity framebuffer
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/my_alu.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity myALU
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/pixel_pusher.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity pixel_pusher
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/regs.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity regs
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/debounce.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity debounce
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/clock_div_25.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity clock_div_25
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/clock_div_115200.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity clock_div_112500
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/vga_ctrl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity vga_ctrl
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/tx.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity uart_tx
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/uart_rx.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity uart_rx
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/uart.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity uart
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.srcs/sources_1/new/controller_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity controller_tb

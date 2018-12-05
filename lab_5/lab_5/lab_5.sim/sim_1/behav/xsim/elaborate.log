@@ -1,7 +1,53 @@
 Vivado Simulator 2018.2
 Copyright 1986-1999, 2001-2018 Xilinx, Inc. All Rights Reserved.
-Running: /home/nick/Documents/xillinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 52f0cd73705548159231663a46418544 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L blk_mem_gen_v8_4_1 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot controller_tb_behav xil_defaultlib.controller_tb xil_defaultlib.glbl -log elaborate.log 
+Running: /usr/local/xilinx/Vivado/2018.2/bin/unwrapped/lnx64.o/xelab -wto 52f0cd73705548159231663a46418544 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L blk_mem_gen_v8_4_1 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot controller_tb_behav xil_defaultlib.controller_tb xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_arith
+Compiling package ieee.std_logic_unsigned
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture behavior of entity xil_defaultlib.clock_div_112500 [clock_div_112500_default]
+Compiling module xil_defaultlib.design_1_clock_div_112500_0_0
+Compiling architecture behavior of entity xil_defaultlib.clock_div_25 [clock_div_25_default]
+Compiling module xil_defaultlib.design_1_clock_div_25_0_0
+Compiling architecture behavioral of entity xil_defaultlib.controls [controls_default]
+Compiling module xil_defaultlib.design_1_controls_0_0
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="zyn...
+Compiling module xil_defaultlib.design_1_blk_mem_gen_0_2
+Compiling architecture behavioral of entity xil_defaultlib.debounce [debounce_default]
+Compiling module xil_defaultlib.design_1_debounce_0_0
+Compiling architecture frame_arch of entity xil_defaultlib.framebuffer [framebuffer_default]
+Compiling module xil_defaultlib.design_1_framebuffer_0_0
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="zyn...
+Compiling module xil_defaultlib.design_1_blk_mem_gen_0_0
+Compiling architecture behavioral of entity xil_defaultlib.myALU [myalu_default]
+Compiling module xil_defaultlib.design_1_myALU_0_0
+Compiling architecture behavioral of entity xil_defaultlib.pixel_pusher [pixel_pusher_default]
+Compiling module xil_defaultlib.design_1_pixel_pusher_0_0
+Compiling architecture behavioral of entity xil_defaultlib.regs [regs_default]
+Compiling module xil_defaultlib.design_1_regs_0_0
+Compiling architecture fsm of entity xil_defaultlib.uart_rx [uart_rx_default]
+Compiling architecture fsm of entity xil_defaultlib.uart_tx [uart_tx_default]
+Compiling architecture structural of entity xil_defaultlib.uart [uart_default]
+Compiling module xil_defaultlib.design_1_uart_0_0
+Compiling architecture behavioral of entity xil_defaultlib.vga_ctrl [vga_ctrl_default]
+Compiling module xil_defaultlib.design_1_vga_ctrl_0_0
+Compiling module xil_defaultlib.design_1
+Compiling module xil_defaultlib.design_1_wrapper
+Compiling architecture behavioral of entity xil_defaultlib.controller_tb
+Built simulation snapshot controller_tb_behav

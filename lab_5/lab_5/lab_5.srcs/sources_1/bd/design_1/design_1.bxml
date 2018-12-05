@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="36">
   <CompositeFile CompositeFileTopName="design_1" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1543986949"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1543986949"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1543986949"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1543986949"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1544034743"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1544034743"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1544034743"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1544034743"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip/design_1_controls_0_0/design_1_controls_0_0.xci" Type="IP">
         <Instance HierarchyPath="controls_0"/>
@@ -103,13 +103,12 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="synth/design_1.v" Type="Verilog">
+      <File Name="synth/design_1.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
       </File>
-      <File Name="sim/design_1.v" Type="Verilog">
+      <File Name="sim/design_1.vhd" Type="VHDL">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
