@@ -127,8 +127,7 @@ process(clk, rst) begin
                         NS <= fetch2;
         when fetch2 =>
                         -- Wait for instruction to be read from memory
-                        PC      <= regrD1;
-                        irAddr  <= PC(13 downto 0);            -- Sending instruction address to Instr Memory
+                        irAddr  <= regrD1(13 downto 0);            -- Sending instruction address to Instr Memory
                         PC      <= STD_LOGIC_VECTOR(unsigned(regrD1) + 1);
                         NS      <= fetch3;
         when fetch3 =>

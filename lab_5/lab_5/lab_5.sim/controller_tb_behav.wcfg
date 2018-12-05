@@ -11,13 +11,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="57343333333fs"></ZoomStartTime>
-      <ZoomEndTime time="113643333334fs"></ZoomEndTime>
-      <Cursor1Time time="104260000000fs"></Cursor1Time>
+      <ZoomStartTime time="1424302123000fs"></ZoomStartTime>
+      <ZoomEndTime time="1490252123001fs"></ZoomEndTime>
+      <Cursor1Time time="1450802123000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="175"></NameColumnWidth>
-      <ValueColumnWidth column_width="142"></ValueColumnWidth>
+      <ValueColumnWidth column_width="138"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="25" />
    <wvobject type="logic" fp_name="/controller_tb/tb_clk">
@@ -55,11 +55,6 @@
    <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/dIn">
       <obj_property name="ElementShortName">dIn[15:0]</obj_property>
       <obj_property name="ObjectShortName">dIn[15:0]</obj_property>
-      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/inst/imm">
-      <obj_property name="ElementShortName">imm[15:0]</obj_property>
-      <obj_property name="ObjectShortName">imm[15:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/inst/regrD2">
@@ -115,6 +110,11 @@
       <obj_property name="ElementShortName">id1[4:0]</obj_property>
       <obj_property name="ObjectShortName">id1[4:0]</obj_property>
    </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/regs_0/inst/dout1">
+      <obj_property name="ElementShortName">dout1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout1[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/regs_0/inst/din1">
       <obj_property name="ElementShortName">din1[15:0]</obj_property>
       <obj_property name="ObjectShortName">din1[15:0]</obj_property>
@@ -123,8 +123,9 @@
       <obj_property name="ElementShortName">wr_en1</obj_property>
       <obj_property name="ObjectShortName">wr_en1</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/regs_0/inst/dout1">
-      <obj_property name="ElementShortName">dout1[15:0]</obj_property>
-      <obj_property name="ObjectShortName">dout1[15:0]</obj_property>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/inst/imm">
+      <obj_property name="ElementShortName">imm[15:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
 </wave_config>
