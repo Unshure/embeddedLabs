@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="controller_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="controller_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="57343333333fs"></ZoomStartTime>
+      <ZoomEndTime time="113643333334fs"></ZoomEndTime>
+      <Cursor1Time time="104260000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="142"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="25" />
+   <wvobject type="logic" fp_name="/controller_tb/tb_clk">
+      <obj_property name="ElementShortName">tb_clk</obj_property>
+      <obj_property name="ObjectShortName">tb_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/TXD">
+      <obj_property name="ElementShortName">TXD</obj_property>
+      <obj_property name="ObjectShortName">TXD</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/controller_tb/dut/design_1_i/controls_0/inst/NS">
+      <obj_property name="ElementShortName">NS</obj_property>
+      <obj_property name="ObjectShortName">NS</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/ready">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/send">
+      <obj_property name="ElementShortName">send</obj_property>
+      <obj_property name="ObjectShortName">send</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/t_x/ready">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/dut/design_1_i/clock_div_112500_0/clk_div">
+      <obj_property name="ElementShortName">clk_div</obj_property>
+      <obj_property name="ObjectShortName">clk_div</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/RXD">
+      <obj_property name="ElementShortName">RXD</obj_property>
+      <obj_property name="ObjectShortName">RXD</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/dIn">
+      <obj_property name="ElementShortName">dIn[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dIn[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/inst/imm">
+      <obj_property name="ElementShortName">imm[15:0]</obj_property>
+      <obj_property name="ObjectShortName">imm[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/inst/regrD2">
+      <obj_property name="ElementShortName">regrD2[15:0]</obj_property>
+      <obj_property name="ObjectShortName">regrD2[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/irMem/inst/douta">
+      <obj_property name="ElementShortName">douta[31:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[31:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/irMem/addra">
+      <obj_property name="ElementShortName">addra[13:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[13:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/controls_0/inst/PC">
+      <obj_property name="ElementShortName">PC[15:0]</obj_property>
+      <obj_property name="ObjectShortName">PC[15:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/charSend">
+      <obj_property name="ElementShortName">charSend[7:0]</obj_property>
+      <obj_property name="ObjectShortName">charSend[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/send">
+      <obj_property name="ElementShortName">send</obj_property>
+      <obj_property name="ObjectShortName">send</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/ready">
+      <obj_property name="ElementShortName">ready</obj_property>
+      <obj_property name="ObjectShortName">ready</obj_property>
+   </wvobject>
+   <wvobject type="other" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/t_x/N">
+      <obj_property name="ElementShortName">N</obj_property>
+      <obj_property name="ObjectShortName">N</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/t_x/count">
+      <obj_property name="ElementShortName">count[3:0]</obj_property>
+      <obj_property name="ObjectShortName">count[3:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/t_x/shift">
+      <obj_property name="ElementShortName">shift[7:0]</obj_property>
+      <obj_property name="ObjectShortName">shift[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/uart_0/inst/t_x/char">
+      <obj_property name="ElementShortName">char[7:0]</obj_property>
+      <obj_property name="ObjectShortName">char[7:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/regs_0/inst/id1">
+      <obj_property name="ElementShortName">id1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">id1[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/regs_0/inst/din1">
+      <obj_property name="ElementShortName">din1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">din1[15:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/controller_tb/dut/design_1_i/regs_0/inst/wr_en1">
+      <obj_property name="ElementShortName">wr_en1</obj_property>
+      <obj_property name="ObjectShortName">wr_en1</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/controller_tb/dut/design_1_i/regs_0/inst/dout1">
+      <obj_property name="ElementShortName">dout1[15:0]</obj_property>
+      <obj_property name="ObjectShortName">dout1[15:0]</obj_property>
+   </wvobject>
+</wave_config>

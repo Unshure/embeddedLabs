@@ -43,8 +43,8 @@ end controls;
 architecture Behavioral of controls is
 
 type state is (fetch, fetch1, fetch2, fetch3, decode, Jops, Iops, Iops1, Rops, Rops1, jmp, jal, jal1, clrscr, sw,
-				sw1, lw, ori, ori1, ori2, nequal, nequal1, nequal2, equals, equals1, equals2, calc, 
-				calc1, calc2, jr, recv, rpix, rpix1, rpix2, wpix, send, store, finish, finish1, finish2);
+				sw1, lw, lw1, lw2, ori, ori1, ori2, nequal, nequal1, nequal2, equals, equals1, equals2, calc, 
+				calc1, calc2, jr, recv, rpix, rpix1, rpix2, wpix, send, send1, send2, store, finish, finish1, finish2);
 signal NS : state := fetch;
 
 -- Processor Signals
@@ -129,7 +129,7 @@ process(clk, rst) begin
                         -- Wait for instruction to be read from memory
                         PC      <= regrD1;
                         irAddr  <= PC(13 downto 0);            -- Sending instruction address to Instr Memory
-                        PC      <= STD_LOGIC_VECTOR(unsigned(PC) + 1);
+                        PC      <= STD_LOGIC_VECTOR(unsigned(regrD1) + 1);
                         NS      <= fetch3;
         when fetch3 =>
                         -- Wait for instruction read
@@ -139,11 +139,11 @@ process(clk, rst) begin
 						wr_enR1 <= '1';
 						rID1 	<= "00001";
 						regwD1  <= STD_LOGIC_VECTOR(unsigned(PC));
-						opcode  <= currIN(31 downto 27);
+						opcode  <= irWord(31 downto 27);
 
-						if(currIN(31 downto 30) = "00") or currIN(31 downto 30) = "01" then
+						if(irWord(31 downto 30) = "00") or irWord(31 downto 30) = "01" then
 							NS 	<= Rops;
-						elsif currIN(31 downto 30) = "10" then
+						elsif irWord(31 downto 30) = "10" then
 							NS 	<= Iops;
 						else
 							NS 	<= Jops;
@@ -234,7 +234,7 @@ process(clk, rst) begin
 		when jmp	=>							
 						rID1 	 <= "00001";					    -- to PC register
 						wr_enR1 <= '1'; 							-- PC
-						regwD1  <= imm;                                -- PC holds value of branch/label/immediate
+						regwD1  <= imm;                             -- PC holds value of branch/label/immediate
 						NS 		<= finish;							
 
 		when jal	=>
@@ -242,7 +242,7 @@ process(clk, rst) begin
 						rID2     <= "00010";                        -- to ra register
 						wr_enR1 <= '1'; 							-- PC
                         wr_enR2 <= '1';                             -- ra
-                        regwD1  <= imm;                                -- PC holds value of branch/label/immediate
+                        regwD1  <= imm;                             -- PC holds value of branch/label/immediate
                         regwD2 	<= PC;							
 						NS 		<= finish;
 
@@ -254,14 +254,21 @@ process(clk, rst) begin
 						res 	<= STD_LOGIC_VECTOR(unsigned(regrD2) + unsigned(imm));						-- Result is desired mem address
 						d_wr_en <= '1';								-- enable write to data memory
 						-- Going to Disregard top 2 bits for Data address
-						dAddr  	<= res(14 downto 0);				-- Alu Result holds address of where to store value
+						dAddr  	<= std_logic_vector(unsigned(regrD2(14 downto 0)) + unsigned(imm(14 downto 0)));				-- Alu Result holds address of where to store value
 						dOut 	<= regrD1;							-- reg1 holds value to store
 						NS 		<= finish;
 
 		when lw 	=>
-						res  <= STD_LOGIC_VECTOR(unsigned(regrD2) + unsigned(imm));
-						NS 		<= store;
-
+		                
+                        dAddr   <= std_logic_vector(unsigned(regrD2(14 downto 0)) + unsigned(imm(14 downto 0)));  --get this value from data memory
+						NS 		<= lw1;
+		when lw1    =>
+		              -- Give a clock cycle to get data from memory
+		                NS    <=  lw2;
+	    when lw2   =>
+	                   res <=  dIn;
+	                   NS  <= store;
+    
 		when ori	=>
 						-- Send values to ALU
 						aluA 	<= regrD2;							-- Reg 2 holds value to or
@@ -374,11 +381,17 @@ process(clk, rst) begin
 		when send 	=>
 						sendOut <= '1';
 						charSend<= regrD1(7 downto 0);
-						if ready = '1' then
-							NS 	<= finish;
-						else
-							NS  <= send;
-						end if;
+                        NS <= send1;
+        when send1  =>
+                        -- Takes a full cycle after send for ready to update
+                        sendOut <= '0';
+                        NS <= send2;
+        when send2  =>
+                        if ready = '1' then
+                            NS     <= finish;
+                        else
+                            NS  <= send2;
+                        end if;
 
 		when store	=> 						-- Storing value through RID1
 						wr_enR1 <= '1';
@@ -388,12 +401,12 @@ process(clk, rst) begin
 
 		when finish	=>
 						-- Reseting write enables
-						wr_enR2	<= '0';
-						d_wr_en <= '0';
-						sendOut <= '0';
-						fb_en  	<= '0';
-						wr_enR1 <= '0';
-						fbRST <= '0';
+                        wr_enR2    <= '0';
+                        d_wr_en <= '0';
+                        sendOut <= '0';
+                        fb_en      <= '0';
+                        wr_enR1 <= '0';
+                        fbRST <= '0';
 						
 						-- EXTRA CREDIT
 						rID2    <= "11111";           -- Getting value from register 31
