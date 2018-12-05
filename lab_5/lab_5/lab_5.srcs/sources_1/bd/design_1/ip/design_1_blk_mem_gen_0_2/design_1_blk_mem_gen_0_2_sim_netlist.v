@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.2 (lin64) Build 2258646 Thu Jun 14 20:02:38 MDT 2018
-// Date        : Wed Dec  5 13:22:06 2018
+// Date        : Wed Dec  5 13:22:05 2018
 // Host        : ece17 running 64-bit Ubuntu 16.04.5 LTS
-// Command     : write_verilog -force -mode funcsim
-//               /home/user/Downloads/embeddedLabs/lab_5/lab_5/lab_5.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_2/design_1_blk_mem_gen_0_2_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim -rename_top design_1_blk_mem_gen_0_2 -prefix
+//               design_1_blk_mem_gen_0_2_ design_1_blk_mem_gen_0_2_sim_netlist.v
 // Design      : design_1_blk_mem_gen_0_2
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -192,7 +192,6 @@ module design_1_blk_mem_gen_0_2
         .web(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "bindec" *) 
 module design_1_blk_mem_gen_0_2_bindec
    (ena_array,
     addra);
@@ -246,7 +245,6 @@ module design_1_blk_mem_gen_0_2_bindec
         .O(ena_array[5]));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_generic_cstr
    (douta,
     clka,
@@ -467,7 +465,6 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_generic_cstr
         .wea(wea));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_mux" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_mux
    (douta,
     addra,
@@ -798,7 +795,6 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_mux
         .R(1'b0));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_width
    (douta,
     clka,
@@ -1259,7 +1255,6 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_width__parameterized9
         .wea(wea));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_wrapper_init
    (douta,
     clka,
@@ -4932,7 +4927,6 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_prim_wrapper_init__parameterized9
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_top
    (douta,
     clka,
@@ -4983,7 +4977,7 @@ endmodule
 (* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "1" *) (* C_WEB_WIDTH = "1" *) 
 (* C_WRITE_DEPTH_A = "32768" *) (* C_WRITE_DEPTH_B = "32768" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
 (* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "16" *) (* C_WRITE_WIDTH_B = "16" *) 
-(* C_XDEVICEFAMILY = "zynq" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* C_XDEVICEFAMILY = "zynq" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_v8_4_1
    (clka,
     rsta,
@@ -5215,7 +5209,6 @@ module design_1_blk_mem_gen_0_2_blk_mem_gen_v8_4_1
         .wea(wea));
 endmodule
 
-(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module design_1_blk_mem_gen_0_2_blk_mem_gen_v8_4_1_synth
    (douta,
     clka,

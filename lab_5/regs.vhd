@@ -22,7 +22,7 @@ architecture Behavioral of regs is
 
 type registers is array (31 downto 0) of STD_LOGIC_VECTOR(15 downto 0);
 
-shared variable regs : registers := (others => (others => '0'));
+signal regs : registers := (others => (others => '0'));
 
 begin
 
@@ -33,13 +33,15 @@ begin
 process(clk) begin
 
     if rst = '1' then
-        regs    := (others => (others => '0'));
-    elsif rising_edge(clk) and (en = '1') then
-        regs(0) := (others => '0');
+        regs <= (others => (others => '0'));
+    end if;
+
+    if rising_edge(clk) and (en = '1') then
+        regs(0) <= (others => '0');
         if wr_en1 = '1' then
-            regs(to_integer(unsigned(id1))) := din1;
+            regs(to_integer(unsigned(id1))) <= din1;
         elsif (wr_en2 = '1') then
-            regs(to_integer(unsigned(id2))) := din2;
+            regs(to_integer(unsigned(id2))) <= din2;
         end if;
     end if;
 
