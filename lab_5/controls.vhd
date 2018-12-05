@@ -120,6 +120,7 @@ process(clk, rst) begin
 
 		when fetch	=>
 		                -- Read Current PC
+		                fbRST <= '0';
 		                rID1 <= "00001";
 		                NS <= fetch1;
         when fetch1 =>
