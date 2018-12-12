@@ -1,0 +1,8 @@
+01:40:10 **** Auto Build of configuration Debug for project getting_started_with_ZYBO ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Nothing to be done for 'main-build'.
+
+01:40:10 Build Finished (took 262ms)
+
